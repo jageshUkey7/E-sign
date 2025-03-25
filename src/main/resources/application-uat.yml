@@ -1,0 +1,58 @@
+
+spring:
+  application:
+    name: e-sign
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/WaitnpayEsign?createDatabaseIfNotExist=true&useSSL=true&useUnicode=yes&characterEncoding=UTF-8
+    username: root
+    password: Abcmapp@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8877
+
+connectionurl: http://203.192.228.125:7081/eSignWeb/login
+
+kycUrl: http://203.192.228.125:7081/ABCMKyc/esign/aadhar
+# kycUrl: http://localhost:6000/esign/aadhar
+
+destination: /home/Waitnpay/DynamicProjectImagesAndFiles/esign/
+updatedBy: zoop
+
+schedularfilepath: /home/Waitnpay/DynamicProjectImagesAndFiles/esign/Logs/
+
+#email details
+baseUrl : https://www.waitnpay.com/AbcmNotification-api/attachment
+transactionbody : /opt/tomcat_wnp_7080/webapps/eSignWeb/WEB-INF/classes/static/
+from : noreply@waitnpay.com
+cc : abcm@gmail.com
+subject : Waitnpay e-sign 
+password : BI2KnnuVdPTNdQccMRBaFeJXatzlIdYVBlJ4phksZKR7
+naming : AKIAUY2SXE5B3L34ZDXG
+host : email-smtp.ap-south-1.amazonaws.com
+port : 2587
+
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health, info
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true

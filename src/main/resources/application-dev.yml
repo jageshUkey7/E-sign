@@ -1,0 +1,60 @@
+
+spring:
+  application:
+    name: e-sign
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://localhost:3306/waitnpayesign?createDatabaseIfNotExist=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+
+server:
+  port: 8877
+
+connectionurl: http://localhost:8877
+
+kycUrl: http://203.192.228.125:7081/ABCMKyc/esign/aadhar
+# kycUrl: http://localhost:6000/esign/aadhar
+
+destination: C:/Users/LENOVO/Desktop/UATWNP-13-11-24/e-sign/src/main/resources/
+updatedBy: zoop
+
+schedularfilepath: C:/Users/LENOVO/Desktop/Esign UAT 21-11-24
+
+#email details
+baseUrl : https://www.waitnpay.com/AbcmNotification-api/attachment
+transactionbody : C:/Users/LENOVO/Desktop/UATWNP-13-11-24/e-sign/src/main/resources/static
+from : noreply@waitnpay.com
+cc : jagesh@gmail.com
+subject : WaitNpay e-sign
+password : BI2KnnuVdPTNdQccMRBaFeJXatzlIdYVBlJ4phksZKR7
+naming : AKIAUY2SXE5B3L34ZDXG
+host : email-smtp.ap-south-1.amazonaws.com
+port : 2587
+
+
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus, health, info
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
